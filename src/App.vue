@@ -1,19 +1,26 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white font-sans overflow-x-hidden">
+  <div class="min-h-screen text-white font-sans overflow-x-hidden"
+       :class="{'bg-gradient-to-b from-black to-gray-900': isDarkMode, 'bg-gradient-to-b from-white to-gray-100': !isDarkMode}">
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-gray-800/50">
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-300"
+         :class="{'bg-black/80 backdrop-blur-lg border-gray-800/50': isDarkMode, 
+                 'bg-white/80 backdrop-blur-lg border-gray-200/50': !isDarkMode}">
       <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-        <div class="text-2xl font-semibold tracking-tight">Collins Kreation</div>
+        <div class="text-2xl font-semibold tracking-tight" :class="{'text-white': isDarkMode, 'text-gray-900': !isDarkMode}">Collins Kreation</div>
         <div class="hidden md:flex items-center">
           <div class="space-x-8 mr-8">
-            <a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a>
-            <a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a>
-            <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+            <a href="#projects" class="hover:text-blue-500 transition-colors" 
+               :class="{'text-gray-400 hover:text-white': isDarkMode, 'text-gray-600 hover:text-black': !isDarkMode}">Projects</a>
+            <a href="#about" class="hover:text-blue-500 transition-colors"
+               :class="{'text-gray-400 hover:text-white': isDarkMode, 'text-gray-600 hover:text-black': !isDarkMode}">About</a>
+            <a href="#contact" class="hover:text-blue-500 transition-colors"
+               :class="{'text-gray-400 hover:text-white': isDarkMode, 'text-gray-600 hover:text-black': !isDarkMode}">Contact</a>
           </div>
           <!-- Theme toggle button -->
-          <button 
+          <!-- <button 
             @click="toggleDarkMode" 
-            class="p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors duration-300"
+            class="p-2 rounded-full transition-colors duration-300"
+            :class="{'bg-gray-800 hover:bg-gray-700': isDarkMode, 'bg-gray-200 hover:bg-gray-300': !isDarkMode}"
             aria-label="Toggle dark/light mode"
           >
             <svg v-if="isDarkMode" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -22,7 +29,7 @@
             <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
             </svg>
-          </button>
+          </button> -->
         </div>
         
         <!-- Mobile menu button -->
@@ -30,7 +37,8 @@
           <!-- Theme toggle button -->
           <button 
             @click="toggleDarkMode" 
-            class="p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors duration-300"
+            class="p-2 rounded-full transition-colors duration-300"
+            :class="{'bg-gray-800 hover:bg-gray-700': isDarkMode, 'bg-gray-200 hover:bg-gray-300': !isDarkMode}"
             aria-label="Toggle dark/light mode"
           >
             <svg v-if="isDarkMode" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -73,27 +81,32 @@
       <!-- Mobile menu -->
       <div 
         v-if="isMenuOpen" 
-        class="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-lg border-b border-gray-800/50"
+        class="md:hidden absolute top-full left-0 right-0 border-b transition-colors duration-300"
+        :class="{'bg-black/95 backdrop-blur-lg border-gray-800/50': isDarkMode, 
+                'bg-white/95 backdrop-blur-lg border-gray-200/50': !isDarkMode}"
       >
         <div class="p-6 space-y-4">
           <a 
             href="#projects" 
             @click="isMenuOpen = false" 
-            class="block text-gray-300 hover:text-white py-2 transition-colors"
+            class="block py-2 transition-colors hover:text-blue-500"
+            :class="{'text-gray-300 hover:text-white': isDarkMode, 'text-gray-700 hover:text-black': !isDarkMode}"
           >
             Projects
           </a>
           <a 
             href="#about" 
             @click="isMenuOpen = false" 
-            class="block text-gray-300 hover:text-white py-2 transition-colors"
+            class="block py-2 transition-colors hover:text-blue-500"
+            :class="{'text-gray-300 hover:text-white': isDarkMode, 'text-gray-700 hover:text-black': !isDarkMode}"
           >
             About
           </a>
           <a 
             href="#contact" 
             @click="isMenuOpen = false" 
-            class="block text-gray-300 hover:text-white py-2 transition-colors"
+            class="block py-2 transition-colors hover:text-blue-500"
+            :class="{'text-gray-300 hover:text-white': isDarkMode, 'text-gray-700 hover:text-black': !isDarkMode}"
           >
             Contact
           </a>
@@ -133,11 +146,14 @@
     </div>
     
     <!-- Projects Section -->
-    <div id="projects" class="py-20 px-8 bg-black">
+    <div id="projects" class="py-20 px-8 transition-colors duration-300"
+         :class="{'bg-black': isDarkMode, 'bg-gray-100': !isDarkMode}">
       <div class="max-w-7xl mx-auto">
         <div class="mb-16 animate-on-scroll fade-up">
-          <h2 class="text-3xl md:text-5xl font-medium text-white mb-4">UI/UX Design Projects</h2>
-          <p class="text-xl text-gray-400 mb-12">A showcase of my design expertise and creative process</p>
+          <h2 class="text-3xl md:text-5xl font-medium mb-4"
+              :class="{'text-white': isDarkMode, 'text-gray-900': !isDarkMode}">UI/UX Design Projects</h2>
+          <p class="text-xl mb-12"
+             :class="{'text-gray-400': isDarkMode, 'text-gray-600': !isDarkMode}">A showcase of my design expertise and creative process</p>
         </div>
         
         <!-- UI/UX Design Projects - Card Layout -->
@@ -223,7 +239,8 @@
     </div>
     
     <!-- About Section -->
-    <div id="about" class="py-24 px-8 bg-gradient-to-b from-gray-900 to-black">
+    <div id="about" class="py-24 px-8 transition-colors duration-300"
+         :class="{'bg-gradient-to-b from-gray-900 to-black': isDarkMode, 'bg-gradient-to-b from-gray-200 to-white': !isDarkMode}">
       <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div class="animate-on-scroll fade-left">
@@ -360,7 +377,8 @@
     </div>
     
     <!-- Footer -->
-    <div class="max-w-7xl mx-auto border-t border-gray-800 py-8 px-8">
+    <div class="max-w-7xl mx-auto py-8 px-8 transition-colors duration-300"
+         :class="{'border-t border-gray-800': isDarkMode, 'border-t border-gray-200': !isDarkMode}">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <p class="text-gray-500">© {{ new Date().getFullYear() }} Collins Kreation. All rights reserved.</p>
         <div class="flex space-x-6 mt-4 md:mt-0">
@@ -385,11 +403,28 @@
         </div>
       </div>
     </div>
+
+    <!-- Back to top button -->
+    <button 
+      @click="scrollToTop" 
+      class="fixed right-6 bottom-6 p-3 rounded-full shadow-lg z-50 transition-all duration-300 transform hover:scale-110"
+      :class="{
+        'bg-gray-800 hover:bg-gray-700 text-white': isDarkMode,
+        'bg-white hover:bg-gray-100 text-gray-800': !isDarkMode,
+        'translate-y-0 opacity-100': showBackToTop,
+        'translate-y-16 opacity-0': !showBackToTop
+      }"
+      aria-label="Back to top"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>
+    </button>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 // Featured projects from Behance
 const featuredProjects = ref([
@@ -460,6 +495,7 @@ const otherProjects = ref([
 
 const isMenuOpen = ref(false);
 const isDarkMode = ref(true);
+const showBackToTop = ref(false);
 
 // Initialize scroll reveal animation functionality
 onMounted(() => {
@@ -507,11 +543,46 @@ onMounted(() => {
   // Toggle theme based on user preference
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   isDarkMode.value = prefersDark;
+  // Apply theme class immediately
+  updateTheme();
+  
+  // Add scroll event listener for back-to-top button
+  window.addEventListener('scroll', handleScroll);
 });
+
+// Clean up event listeners when component is unmounted
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+
+// Show back-to-top button when user has scrolled down
+function handleScroll() {
+  showBackToTop.value = window.scrollY > 500;
+}
+
+// Scroll to top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
 
 function toggleDarkMode() {
   isDarkMode.value = !isDarkMode.value;
-  document.documentElement.classList.toggle('light-mode', !isDarkMode.value);
+  updateTheme();
+  
+  // Store preference in localStorage
+  localStorage.setItem('isDarkMode', isDarkMode.value);
+}
+
+function updateTheme() {
+  // Apply or remove light-mode class to html element
+  if (isDarkMode.value) {
+    document.documentElement.classList.remove('light-mode');
+  } else {
+    document.documentElement.classList.add('light-mode');
+  }
 }
 </script>
 
