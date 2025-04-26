@@ -1,8 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  base: '/', // Changed from '/Collins-Kreation/' to '/' for custom domain
+  base: '/',
+  server: {
+    port: 3000, // You can change this to any port number you prefer
+    open: true  // This will automatically open the browser
+  }
 })
