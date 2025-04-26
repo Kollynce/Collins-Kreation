@@ -1,4 +1,4 @@
-https://collinsodeny.com/
-https://collinsodeny.com/#projects
-https://collinsodeny.com/#about
-https://collinsodeny.com/#contact
+/
+/#projects
+/#about
+/#contact
