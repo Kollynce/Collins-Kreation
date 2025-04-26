@@ -184,7 +184,7 @@ const featuredProjects = ref([
     name: 'Kingles Kids Ticketing Site',
     type: 'UI/UX Design',
     description: 'A user-friendly ticket booking platform designed specifically for children\'s events and activities.',
-    image: '/images/Kingles Kids Ticketing Site.JPG', // Keep existing image as no new one was provided for this project
+    image: 'https://res.cloudinary.com/duzntb8tw/image/upload/v1745697968/Portfolio/Kingles_school_event_aenqaz.png', // Updated image URL
     url: 'https://www.behance.net/gallery/216887003/Kingles-Kids-ticketing-site-for-Kidato'
   },
   {
