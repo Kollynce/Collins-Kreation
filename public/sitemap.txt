@@ -1,4 +1,4 @@
-/
-/#projects
-/#about
-/#contact
+/Collins-Kreation/
+/Collins-Kreation/#projects
+/Collins-Kreation/#about
+/Collins-Kreation/#contact
