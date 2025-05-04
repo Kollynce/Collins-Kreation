@@ -13,7 +13,7 @@
       <!-- UI/UX Design Projects - Card Layout -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div 
-          v-for="project in featuredProjects" 
+          v-for="project in designerProjects" 
           :key="project.name" 
           class="relative flex flex-col sm:flex-row gap-6 animate-on-scroll fade-up"
         >
@@ -57,7 +57,7 @@
         <p class="text-xl text-gray-400 mb-12">A showcase of my coding expertise and development capabilities</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div 
-            v-for="project in otherProjects" 
+            v-for="project in developerProjects" 
             :key="project.name" 
             class="group bg-gray-900/70 backdrop-blur-lg rounded-2xl p-8 hover:bg-gray-800 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/20 animate-on-scroll fade-up"
           >
@@ -96,17 +96,17 @@
 <script setup>
 import { defineProps } from 'vue';
 
-// Define the props
+// Define the props with renamed properties
 const props = defineProps({
   isDarkMode: {
     type: Boolean,
     default: true
   },
-  featuredProjects: {
+  designerProjects: {
     type: Array,
     required: true
   },
-  otherProjects: {
+  developerProjects: {
     type: Array,
     required: true
   }
