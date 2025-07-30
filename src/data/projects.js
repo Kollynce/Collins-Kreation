@@ -42,8 +42,8 @@ export const developerProjects = [
   {
     name: 'Pixel Morph',
     description: 'A powerful tool to convert images between various formats',
-    status: 'Beta',
-    url: 'https://kollynce.github.io/image-converter/'
+    status: 'Live',
+    url: 'https://pixelsmorph.online/'
   },
   {
     name: 'Kreative Kanvas Shop',
@@ -55,12 +55,12 @@ export const developerProjects = [
     name: 'Lit Studio',
     description: 'Digital audio workstation for music production',
     status: 'Coming Soon',
-    url: 'https://kollynce.github.io/music-studio/'
+   url: 'https://diceslitstudios.online/'
   },
   {
     name: 'SanaaPesa',
     description: 'Tax billing calculator for Kenyan businesses and individuals',
-    status: 'Coming Soon',
-    url: 'https://kollynce.github.io/Kenya-Tax-Billing-Calculator/'
+    status: 'Live',
+    url: 'https://sanaapesa.online/'
   }
 ];
