@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://kollynce.github.io/Collins-Kreation",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -12,7 +13,9 @@
     "test:coverage": "vitest run --coverage",
     "lint": "eslint --ext .js,.vue src",
     "lint:fix": "eslint --ext .js,.vue --fix src",
-    "deploy": "firebase deploy --only hosting"
+    "deploy": "firebase deploy --only hosting",
+    "predeploy": "npm run build",
+    "deploy:gh-pages": "gh-pages -d dist -t true"
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
@@ -27,6 +30,7 @@
     "canvas": "^3.1.0",
     "eslint": "^9.25.0",
     "eslint-plugin-vue": "^10.0.0",
+    "gh-pages": "^6.3.0",
     "happy-dom": "^17.4.4",
     "jsdom": "^26.1.0",
     "postcss": "^8.4.35",
