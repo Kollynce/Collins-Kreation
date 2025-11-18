@@ -2,42 +2,72 @@
   <!-- Hero Section -->
   <div class="relative pt-32 pb-32 md:pt-44 md:pb-40 px-8 overflow-hidden">
     <!-- Background elements -->
-    <div class="absolute -top-20 -left-40 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
-    <div class="absolute top-40 right-10 md:right-40 w-64 h-64 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 opacity-10 md:opacity-20 blur-3xl"></div>
-    <div class="absolute bottom-0 -right-20 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow-reverse"></div>
+    <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute top-40 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow-reverse"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl"></div>
 
-    <div class="max-w-7xl mx-auto relative z-10">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <!-- Left Column: Text and View Projects Button -->
-        <div class="animate-on-scroll fade-right">
+    <div class="max-w-5xl mx-auto relative z-10">
+      <div class="flex flex-col items-center text-center">
+        <!-- Text Content -->
+        <div class="animate-on-scroll fade-up max-w-3xl mx-auto mb-16">
+          <!-- Trusted Badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8 mx-auto">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            <span class="text-sm font-medium text-blue-400">Available for new projects</span>
+          </div>
+
           <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
-            UI/UX Designer<br /> & Developer
+            Design & Development <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Subscriptions</span> for Startups
           </h1>
-          <p class="text-xl md:text-2xl text-gray-400 font-light mb-10 max-w-xl">
-            Bridging the gap between design and development, creating beautiful user experiences and functional applications.
+          <p class="text-xl md:text-2xl text-gray-400 font-light mb-10 max-w-2xl mx-auto leading-relaxed">
+            Replace unreliable freelancers and expensive agencies with a flat monthly fee. Pause or cancel anytime.
           </p>
-          <div class="flex">
-            <a
-              href="#projects"
-              class="view-projects-btn group relative px-8 py-3 rounded-lg transition-all duration-300 font-medium text-center text-white overflow-hidden inline-flex items-center justify-center"
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <!-- Primary CTA: Book a Call -->
+            <button
+              @click="$emit('open-booking')"
+              class="group relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
             >
-              <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 via-blue-400 to-indigo-500 animate-gradient-x"></span>
-              <span class="absolute inset-0 w-full h-full bg-black opacity-40 group-hover:opacity-30 transition-opacity duration-300"></span>
-              <span class="absolute inset-0 w-full h-full animate-shine opacity-50 group-hover:opacity-80 transition-opacity duration-300"></span>
-              <span class="relative flex items-center justify-center">
-                View Projects
-                <svg class="hand-animation ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-y-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 15l-6 6m0 0l-6-6m6 6V9a6 6 0 0 1 6-6h0"></path>
+              <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-indigo-600"></span>
+              <span class="relative flex items-center justify-center gap-2">
+                Book a 15-min Call
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </span>
+            </button>
+
+            <!-- Secondary CTA: View Projects -->
+            <a
+              href="#projects"
+              class="px-8 py-4 rounded-xl font-medium text-gray-300 border border-gray-700 hover:border-gray-500 hover:text-white hover:bg-gray-800/50 transition-all duration-300 flex items-center justify-center gap-2"
+            >
+              View Projects
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
             </a>
-            <!-- Contact Me button removed -->
+          </div>
+          
+          <!-- Social Proof / Trust Indicators -->
+          <div class="mt-12 flex items-center justify-center gap-4 text-sm text-gray-500">
+            <div class="flex -space-x-2">
+              <div class="w-8 h-8 rounded-full bg-gray-700 border-2 border-black flex items-center justify-center text-xs text-white">C</div>
+              <div class="w-8 h-8 rounded-full bg-gray-600 border-2 border-black flex items-center justify-center text-xs text-white">K</div>
+              <div class="w-8 h-8 rounded-full bg-gray-500 border-2 border-black flex items-center justify-center text-xs text-white">S</div>
+            </div>
+            <p>Trusted by innovative startups</p>
           </div>
         </div>
 
-        <!-- Right Column: Interactive Prompt -->
-        <div class="animate-on-scroll fade-left">
-          <InteractivePrompt />
+        <!-- Recent Work Showcase (Centered) -->
+        <div class="w-full max-w-md animate-on-scroll fade-up delay-200">
+          <RecentWork />
         </div>
       </div>
     </div>
@@ -45,8 +75,11 @@
 </template>
 
 <script setup>
-import InteractivePrompt from './InteractivePrompt.vue';
-// No additional props or state needed for the Hero component
+import { defineEmits } from 'vue';
+import RecentWork from './RecentWork.vue';
+
+// Define emits for booking modal
+defineEmits(['open-booking']);
 </script>
 
 <style scoped>
@@ -69,30 +102,10 @@ import InteractivePrompt from './InteractivePrompt.vue';
   animation: gradient-x 4s ease infinite;
 }
 
-@keyframes shine {
-  0% { mask-position: -150%; }
-  100% { mask-position: 250%; }
-}
-
-.animate-shine {
-  mask-image: linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
-  mask-size: 200% 100%;
-  animation: shine 2.5s linear infinite;
-}
-
-@keyframes pointDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
-}
-
-.hand-animation {
-  animation: pointDown 1.5s ease-in-out infinite;
-}
-
 /* Animations for background elements */
 @keyframes pulse-slow {
-  0%, 100% { transform: scale(1); opacity: 0.1; }
-  50% { transform: scale(1.05); opacity: 0.15; }
+  0%, 100% { transform: translate(-50%, 0) scale(1); opacity: 0.1; }
+  50% { transform: translate(-50%, 0) scale(1.05); opacity: 0.15; }
 }
 .animate-pulse-slow {
   animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -108,26 +121,15 @@ import InteractivePrompt from './InteractivePrompt.vue';
 }
 
 /* Define fade animations */
-@keyframes fadeRight {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.animate-on-scroll.fade-right {
+.animate-on-scroll.fade-up {
   opacity: 0; /* Start hidden */
+  animation: fadeUp 0.8s ease-out forwards;
 }
-.animate-on-scroll.fade-right.animate {
-  animation: fadeRight 0.8s ease-out forwards;
-}
-
-@keyframes fadeLeft {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-.animate-on-scroll.fade-left {
-  opacity: 0; /* Start hidden */
-}
-.animate-on-scroll.fade-left.animate {
-  animation: fadeLeft 0.8s ease-out forwards;
-  animation-delay: 0.2s; /* Stagger animation */
+.delay-200 {
+  animation-delay: 0.2s;
 }
 </style>

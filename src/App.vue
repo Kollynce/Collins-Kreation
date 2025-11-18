@@ -1,21 +1,22 @@
 <template>
-  <div class="min-h-screen text-white font-sans overflow-x-hidden"
-       :class="{'bg-gradient-to-b from-black to-gray-900': isDarkMode, 'bg-gradient-to-b from-white to-gray-100': !isDarkMode}">
+  <div class="min-h-screen text-white font-sans overflow-x-hidden bg-gradient-to-b from-black to-gray-900">
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-300"
-         :class="{'bg-black/80 backdrop-blur-lg border-gray-800/50': isDarkMode, 
-                 'bg-white/80 backdrop-blur-lg border-gray-200/50': !isDarkMode}">
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-300 bg-black/80 backdrop-blur-lg border-gray-800/50">
       <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-        <div class="text-2xl font-semibold tracking-tight" :class="{'text-white': isDarkMode, 'text-gray-900': !isDarkMode}">Collins Kreation</div>
+        <div class="text-2xl font-semibold tracking-tight text-white">Collins Kreation</div>
         <div class="hidden md:flex items-center">
           <div class="space-x-8 mr-8">
-            <a href="#projects" class="hover:text-blue-500 transition-colors" 
-               :class="{'text-gray-400 hover:text-white': isDarkMode, 'text-gray-600 hover:text-black': !isDarkMode}">Projects</a>
-            <a href="#about" class="hover:text-blue-500 transition-colors"
-               :class="{'text-gray-400 hover:text-white': isDarkMode, 'text-gray-600 hover:text-black': !isDarkMode}">About</a>
-            <a href="#contact" class="hover:text-blue-500 transition-colors"
-               :class="{'text-gray-400 hover:text-white': isDarkMode, 'text-gray-600 hover:text-black': !isDarkMode}">Contact</a>
+            <a href="#services" class="hover:text-blue-500 transition-colors text-gray-400 hover:text-white">Services</a>
+            <a href="#pricing" class="hover:text-blue-500 transition-colors text-gray-400 hover:text-white">Pricing</a>
+            <a href="#projects" class="hover:text-blue-500 transition-colors text-gray-400 hover:text-white">Projects</a>
+            <a href="#about" class="hover:text-blue-500 transition-colors text-gray-400 hover:text-white">About</a>
           </div>
+          <button
+            @click="openBookingModal"
+            class="px-6 py-2 rounded-lg font-medium transition-all duration-300 bg-blue-600 hover:bg-blue-700 text-white"
+          >
+            Book a Call
+          </button>
           <!-- Theme toggle button -->
           <!-- <button 
             @click="toggleDarkMode" 
@@ -32,25 +33,10 @@
           </button> -->
         </div>
         
-        <!-- Mobile menu button -->
-        <div class="md:hidden flex items-center space-x-3">
-          <!-- Theme toggle button -->
-          <button 
-            @click="toggleDarkMode" 
-            class="p-2 rounded-full transition-colors duration-300"
-            :class="{'bg-gray-800 hover:bg-gray-700': isDarkMode, 'bg-gray-200 hover:bg-gray-300': !isDarkMode}"
-            aria-label="Toggle dark/light mode"
-          >
-            <svg v-if="isDarkMode" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
-            </svg>
-            <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-            </svg>
-          </button>
-          
-          <button 
-            @click="isMenuOpen = !isMenuOpen"
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center space-x-3">
+            <button 
+              @click="isMenuOpen = !isMenuOpen"
             class="rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             aria-label="Toggle menu"
           >
@@ -78,56 +64,75 @@
         </div>
       </div>
 
-      <!-- Mobile menu -->
       <div 
         v-if="isMenuOpen" 
-        class="md:hidden absolute top-full left-0 right-0 border-b transition-colors duration-300"
-        :class="{'bg-black/95 backdrop-blur-lg border-gray-800/50': isDarkMode, 
-                'bg-white/95 backdrop-blur-lg border-gray-200/50': !isDarkMode}"
+        class="md:hidden absolute top-full left-0 right-0 border-b transition-colors duration-300 bg-black/95 backdrop-blur-lg border-gray-800/50"
       >
         <div class="p-6 space-y-4">
           <a 
+            href="#services" 
+            @click="isMenuOpen = false" 
+            class="block py-2 transition-colors hover:text-blue-500 text-gray-300 hover:text-white"
+          >
+            Services
+          </a>
+          <a 
+            href="#pricing" 
+            @click="isMenuOpen = false" 
+            class="block py-2 transition-colors hover:text-blue-500 text-gray-300 hover:text-white"
+          >
+            Pricing
+          </a>
+          <a 
             href="#projects" 
             @click="isMenuOpen = false" 
-            class="block py-2 transition-colors hover:text-blue-500"
-            :class="{'text-gray-300 hover:text-white': isDarkMode, 'text-gray-700 hover:text-black': !isDarkMode}"
+            class="block py-2 transition-colors hover:text-blue-500 text-gray-300 hover:text-white"
           >
             Projects
           </a>
           <a 
             href="#about" 
             @click="isMenuOpen = false" 
-            class="block py-2 transition-colors hover:text-blue-500"
-            :class="{'text-gray-300 hover:text-white': isDarkMode, 'text-gray-700 hover:text-black': !isDarkMode}"
+            class="block py-2 transition-colors hover:text-blue-500 text-gray-300 hover:text-white"
           >
             About
           </a>
-          <a 
-            href="#contact" 
-            @click="isMenuOpen = false" 
-            class="block py-2 transition-colors hover:text-blue-500"
-            :class="{'text-gray-300 hover:text-white': isDarkMode, 'text-gray-700 hover:text-black': !isDarkMode}"
+          <button
+            @click="openBookingModal(); isMenuOpen = false;"
+            class="w-full py-2 px-4 rounded-lg font-medium transition-all duration-300 bg-blue-600 hover:bg-blue-700 text-white text-left"
           >
-            Contact
-          </a>
+            Book a Call
+          </button>
         </div>
       </div>
     </nav>
     
     <!-- Main sections using modular components -->
-    <Hero />
+    <Hero @open-booking="openBookingModal" />
+
+    <Services />
+    
+    <Pricing @open-booking="openBookingModal" />
+
+    <FAQ @open-booking="openBookingModal" />
+
+    <Testimonials />
     
     <Projects 
-      :is-dark-mode="isDarkMode"
       :designer-projects="designerProjectsList"
       :developer-projects="developerProjectsList"
     />
     
-    <AboutMe :is-dark-mode="isDarkMode" />
+    <AboutMe />
+    
+    <!-- Booking Modal -->
+    <BookingModal 
+      :is-open="isBookingModalOpen" 
+      @close="closeBookingModal"
+    />
     
     <!-- Footer -->
-    <div class="max-w-7xl mx-auto py-8 px-8 transition-colors duration-300"
-         :class="{'border-t border-gray-800': isDarkMode, 'border-t border-gray-200': !isDarkMode}">
+    <div class="max-w-7xl mx-auto py-8 px-8 transition-colors duration-300 border-t border-gray-800">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <p class="text-gray-500">© {{ new Date().getFullYear() }} Collins Kreation. All rights reserved.</p>
         <div class="flex space-x-6 mt-4 md:mt-0">
@@ -156,10 +161,8 @@
     <!-- Back to top button -->
     <button 
       @click="scrollToTop" 
-      class="fixed right-6 bottom-6 p-3 rounded-full shadow-lg z-50 transition-all duration-300 transform hover:scale-110"
+      class="fixed right-6 bottom-6 p-3 rounded-full shadow-lg z-50 transition-all duration-300 transform hover:scale-110 bg-gray-800 hover:bg-gray-700 text-white"
       :class="{
-        'bg-gray-800 hover:bg-gray-700 text-white': isDarkMode,
-        'bg-white hover:bg-gray-100 text-gray-800': !isDarkMode,
         'translate-y-0 opacity-100': showBackToTop,
         'translate-y-16 opacity-0': !showBackToTop
       }"
@@ -175,8 +178,13 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import Hero from './components/Hero.vue';
+import Services from './components/Services.vue';
+import Pricing from './components/Pricing.vue';
+import FAQ from './components/FAQ.vue';
+import Testimonials from './components/Testimonials.vue';
 import Projects from './components/Projects.vue';
 import AboutMe from './components/AboutMe.vue';
+import BookingModal from './components/BookingModal.vue';
 import { designerProjects, developerProjects } from './data/projects.js';
 
 // Featured projects from Behance is now designerProjects
@@ -186,8 +194,17 @@ const designerProjectsList = ref(designerProjects);
 const developerProjectsList = ref(developerProjects);
 
 const isMenuOpen = ref(false);
-const isDarkMode = ref(true);
 const showBackToTop = ref(false);
+const isBookingModalOpen = ref(false);
+
+// Booking modal functions
+function openBookingModal() {
+  isBookingModalOpen.value = true;
+}
+
+function closeBookingModal() {
+  isBookingModalOpen.value = false;
+}
 
 // Initialize scroll reveal animation functionality
 onMounted(() => {
@@ -232,12 +249,6 @@ onMounted(() => {
     });
   });
   
-  // Toggle theme based on user preference
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  isDarkMode.value = prefersDark;
-  // Apply theme class immediately
-  updateTheme();
-  
   // Add scroll event listener for back-to-top button
   window.addEventListener('scroll', handleScroll);
 });
@@ -260,22 +271,6 @@ function scrollToTop() {
   });
 }
 
-function toggleDarkMode() {
-  isDarkMode.value = !isDarkMode.value;
-  updateTheme();
-  
-  // Store preference in localStorage
-  localStorage.setItem('isDarkMode', isDarkMode.value);
-}
-
-function updateTheme() {
-  // Apply or remove light-mode class to html element
-  if (isDarkMode.value) {
-    document.documentElement.classList.remove('light-mode');
-  } else {
-    document.documentElement.classList.add('light-mode');
-  }
-}
 </script>
 
 <style>
