@@ -93,6 +93,9 @@ const loadCalendlyScript = () => {
   script.onload = () => {
     calendlyScriptLoaded = true;
   };
+  script.onerror = (error) => {
+    console.warn('Calendly script failed to load:', error);
+  };
   document.head.appendChild(script);
 
   // Also load Calendly CSS

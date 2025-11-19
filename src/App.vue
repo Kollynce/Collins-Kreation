@@ -3,7 +3,12 @@
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-300 bg-black/80 backdrop-blur-lg border-gray-800/50">
       <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-        <div class="text-2xl font-semibold tracking-tight text-white">Collins Kreation</div>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white/10">
+            <img src="https://res.cloudinary.com/duzntb8tw/image/upload/v1745612424/IMG_4487_1080x1080_jbdwfi.png" alt="Collins Odeny" class="w-full h-full object-cover" />
+          </div>
+          <div class="text-2xl font-semibold tracking-tight text-white">Collins Kreation</div>
+        </div>
         <div class="hidden md:flex items-center">
           <div class="space-x-8 mr-8">
             <a href="#services" class="hover:text-blue-500 transition-colors text-gray-400 hover:text-white">Services</a>
