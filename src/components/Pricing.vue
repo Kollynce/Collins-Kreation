@@ -50,7 +50,7 @@
           <div class="mb-6">
             <div class="flex items-baseline">
               <span class="text-5xl font-bold text-white">
-                $2,995
+                $1,995
               </span>
               <span class="text-gray-400 ml-2">/month</span>
             </div>
@@ -127,7 +127,7 @@
           <div class="mb-6">
             <div class="flex items-baseline">
               <span class="text-5xl font-bold text-white">
-                $4,995
+                $2,995
               </span>
               <span class="text-blue-100 ml-2">/month</span>
             </div>

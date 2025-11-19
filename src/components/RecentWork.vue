@@ -8,8 +8,8 @@
         class="project-card absolute w-full bg-gray-900/90 backdrop-blur-md border border-gray-800 rounded-2xl overflow-hidden transition-all duration-500 ease-out shadow-2xl"
         :class="{
           'z-30 scale-100 translate-y-0': index === 0,
-          'z-20 scale-95 translate-y-4 opacity-60 group-hover/container:translate-y-20 group-hover/container:scale-100 group-hover/container:opacity-100 group-hover/container:rotate-2': index === 1,
-          'z-10 scale-90 translate-y-8 opacity-30 group-hover/container:translate-y-40 group-hover/container:scale-100 group-hover/container:opacity-100 group-hover/container:-rotate-2': index === 2
+          'z-20 scale-95 translate-y-4 opacity-60 group-hover/container:translate-y-32 group-hover/container:scale-100 group-hover/container:opacity-100 group-hover/container:rotate-2': index === 1,
+          'z-10 scale-90 translate-y-8 opacity-30 group-hover/container:translate-y-64 group-hover/container:scale-100 group-hover/container:opacity-100 group-hover/container:-rotate-2': index === 2
         }"
       >
         <div class="flex items-center p-4 gap-4">
@@ -34,7 +34,7 @@
     </div>
 
     <!-- View All Link (Below the stack) -->
-    <div class="text-center mt-12 opacity-0 group-hover/container:opacity-100 transition-opacity duration-500 delay-100">
+    <div class="text-center mt-12 opacity-0 group-hover/container:opacity-100 group-hover/container:translate-y-48 transition-all duration-500 delay-100">
       <a href="#projects" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
         View all projects
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">

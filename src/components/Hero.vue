@@ -1,16 +1,17 @@
 <template>
   <!-- Hero Section -->
-  <div class="relative pt-32 pb-32 md:pt-44 md:pb-40 px-8 overflow-hidden">
+  <div class="relative pt-32 pb-24 md:pt-44 md:pb-32 px-8 z-20">
     <!-- Background elements -->
-    <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
-    <div class="absolute top-40 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow-reverse"></div>
-    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl"></div>
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="absolute top-40 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow-reverse"></div>
+      <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl"></div>
+    </div>
 
     <div class="max-w-5xl mx-auto relative z-10">
       <div class="flex flex-col items-center text-center">
         <!-- Text Content -->
-        <div class="animate-on-scroll fade-up max-w-3xl mx-auto mb-16">
-          <!-- Trusted Badge -->
+        <div class="animate-on-scroll fade-up max-w-3xl mx-auto">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8 mx-auto">
             <span class="relative flex h-2 w-2">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -35,7 +36,7 @@
             >
               <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-indigo-600"></span>
               <span class="relative flex items-center justify-center gap-2">
-                Book a 15-min Call
+                Book a 30-min Call
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
@@ -55,18 +56,47 @@
           </div>
           
           <!-- Social Proof / Trust Indicators -->
-          <div class="mt-12 flex items-center justify-center gap-4 text-sm text-gray-500">
-            <div class="flex -space-x-2">
-              <div class="w-8 h-8 rounded-full bg-gray-700 border-2 border-black flex items-center justify-center text-xs text-white">C</div>
-              <div class="w-8 h-8 rounded-full bg-gray-600 border-2 border-black flex items-center justify-center text-xs text-white">K</div>
-              <div class="w-8 h-8 rounded-full bg-gray-500 border-2 border-black flex items-center justify-center text-xs text-white">S</div>
+          <div class="mt-16 flex flex-col items-center gap-6 animate-on-scroll fade-up delay-200">
+            <p class="text-xs md:text-sm text-gray-500 uppercase tracking-widest font-medium">Trusted by innovative teams at</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60">
+              <!-- TechFlow Logo -->
+              <div class="h-8 text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer group">
+                <svg viewBox="0 0 120 30" fill="currentColor" class="h-full w-auto">
+                  <path d="M15 15L5 25V5L15 15Z" />
+                  <path d="M20 5H30V25H20V5Z" />
+                  <text x="40" y="22" font-family="sans-serif" font-weight="bold" font-size="20">TechFlow</text>
+                </svg>
+              </div>
+              
+              <!-- Nexus Logo -->
+              <div class="h-8 text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer group">
+                <svg viewBox="0 0 100 30" fill="currentColor" class="h-full w-auto">
+                  <circle cx="15" cy="15" r="10" />
+                  <text x="35" y="22" font-family="sans-serif" font-weight="bold" font-size="20">Nexus</text>
+                </svg>
+              </div>
+
+              <!-- Circle Logo -->
+              <div class="h-8 text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer group">
+                <svg viewBox="0 0 100 30" fill="currentColor" class="h-full w-auto">
+                  <rect x="5" y="5" width="20" height="20" rx="5" />
+                  <text x="35" y="22" font-family="sans-serif" font-weight="bold" font-size="20">Circle</text>
+                </svg>
+              </div>
+
+              <!-- FoxHub Logo -->
+              <div class="h-7 text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer group">
+                <svg viewBox="0 0 110 30" fill="currentColor" class="h-full w-auto">
+                  <path d="M15 5L25 25H5L15 5Z" />
+                  <text x="35" y="22" font-family="sans-serif" font-weight="bold" font-size="20">FoxHub</text>
+                </svg>
+              </div>
             </div>
-            <p>Trusted by innovative startups</p>
           </div>
         </div>
 
         <!-- Recent Work Showcase (Centered) -->
-        <div class="w-full max-w-md animate-on-scroll fade-up delay-200">
+        <div class="w-full max-w-md animate-on-scroll fade-up delay-200 mt-16">
           <RecentWork />
         </div>
       </div>

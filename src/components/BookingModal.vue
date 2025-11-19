@@ -44,6 +44,21 @@
               style="min-width:320px;height:700px;"
             ></div>
           </div>
+          
+          <!-- Fallback Link -->
+          <div class="p-4 text-center border-t border-gray-800 bg-gray-900">
+            <p class="text-gray-400 text-sm">
+              Having trouble with the calendar? 
+              <a 
+                :href="calendlyUrl" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-blue-500 hover:text-blue-400 underline transition-colors"
+              >
+                Book directly on Calendly
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </Transition>
