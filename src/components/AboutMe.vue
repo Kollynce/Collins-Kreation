@@ -138,7 +138,7 @@ const techStack = [
   { name: 'Node.js', icon: 'https://cdn.simpleicons.org/nodedotjs/339933' },
   { name: 'Firebase', icon: 'https://cdn.simpleicons.org/firebase/FFCA28' },
   { name: 'Framer', icon: 'https://cdn.simpleicons.org/framer/0055FF' },
-  { name: 'Illustrator', icon: '/icons/illustrator.svg' }
+  { name: 'Illustrator', icon: import.meta.env.BASE_URL + 'icons/illustrator.svg' }
 ];
 </script>
 
